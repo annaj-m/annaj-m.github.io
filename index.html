@@ -290,6 +290,67 @@
     .tools p { max-width: 640px; }
 
     /* ------------------------------------------------------------
+       6b. BEHIND THE SCENES
+       CSS columns stack the photos like a scrapbook, tall and wide ones mixed.
+       ------------------------------------------------------------ */
+    /* Step-by-step strip: sketch to frame. Five steps across on desktop. */
+    .process { margin-top: 48px; }
+    .process h3 { margin: 0 0 6px; }
+    .process > p { max-width: 640px; margin: 0 0 24px; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .steps li { margin: 0; }
+    .steps img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(80, 45, 30, 0.18);
+    }
+    .steps .step-num {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 10px 4px 0;
+      opacity: 0.75;
+    }
+    .steps .step-cap { display: block; font-size: 0.9rem; margin: 2px 4px 0; }
+
+    .scrapbook {
+      columns: 3;
+      column-gap: 18px;
+      margin-top: 40px;
+    }
+
+    .scrapbook figure {
+      margin: 0 0 18px;
+      break-inside: avoid;
+    }
+
+    .scrapbook img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(80, 45, 30, 0.18);
+    }
+
+    .scrapbook figcaption {
+      font-size: 0.9rem;
+      margin: 8px 4px 0;
+    }
+
+    /* The contact section gets the lighter paper color so it stands apart from the section above */
+    .contact { background: var(--paper); }
+
+    /* ------------------------------------------------------------
        7. CONTACT AND FOOTER
        ------------------------------------------------------------ */
     .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
@@ -310,6 +371,10 @@
       .pins { grid-template-columns: repeat(2, 1fr); }
       .stats { grid-template-columns: repeat(2, 1fr); }
       header { border-left-width: 8px; }
+      .scrapbook { columns: 2; column-gap: 12px; }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .steps li:last-child { grid-column: 1 / -1; max-width: 60%; justify-self: center; }
+      .scrapbook figure { margin-bottom: 12px; }
     }
 
     /* Respect people who turn animation off on their device */
@@ -331,6 +396,7 @@
           <li><a href="#autumn">Autumn Collection</a></li>
           <li><a href="#code">The code</a></li>
           <li><a href="#tools">Tools</a></li>
+          <li><a href="#behind">Behind the scenes</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -501,8 +567,99 @@ endif</code></pre>
       </div>
     </section>
 
+    <!-- ===================== BEHIND THE SCENES ===================== -->
+    <section class="behind" id="behind">
+      <div class="wrap">
+        <p class="eyebrow">Behind the scenes</p>
+        <h2>Where it all happens</h2>
+        <div class="divider"></div>
+        <p class="lead">
+          Paint, pencils and a pretty messy desk. This is where the paintings start,
+          before they turn into pins and prints.
+        </p>
+
+        <div class="process">
+          <h3>How the dragonfly came together</h3>
+          <p>
+            I went back and forth on whether the dragonfly should have legs.
+            Here it is from the first sketch to the frame.
+          </p>
+          <ol class="steps">
+            <li>
+              <img loading="lazy" width="970" height="1300" src="images/process_1_sketch_with_legs.jpg" alt="A pencil sketch of the dragonfly with its legs drawn in, above ferns and a flower">
+              <span class="step-num">Step 1</span>
+              <span class="step-cap">First sketch, with legs</span>
+            </li>
+            <li>
+              <img loading="lazy" width="970" height="1300" src="images/process_2_sketch_fewer_legs.jpg" alt="A second pencil sketch of the dragonfly with the legs pulled back">
+              <span class="step-num">Step 2</span>
+              <span class="step-cap">Trying it with the legs pulled back</span>
+            </li>
+            <li>
+              <img loading="lazy" width="975" height="1300" src="images/process_3_first_washes.jpg" alt="The painting with a yellow wash behind the dragonfly, the ferns and leaves painted, and the dragonfly and flower still in outline">
+              <span class="step-num">Step 3</span>
+              <span class="step-cap">Yellow wash, ferns and leaves first</span>
+            </li>
+            <li>
+              <img loading="lazy" width="845" height="850" src="images/process_4_wings_and_flower.jpg" alt="The painting with the wings filled in with mosaic colors, a dark body, and the flower painted">
+              <span class="step-num">Step 4</span>
+              <span class="step-cap">Wings and flower going in</span>
+            </li>
+            <li>
+              <img loading="lazy" width="975" height="1300" src="images/process_5_framed.jpg" alt="The finished dragonfly painting, signed, in a black frame with a white mat">
+              <span class="step-num">Step 5</span>
+              <span class="step-cap">Finished and framed</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="scrapbook">
+          <figure>
+            <img loading="lazy" width="896" height="1300" src="images/01_dragonfly_on_desk.jpg" alt="The dragonfly painting on my desk, with a pink and teal dragonfly above red and blue flowers">
+            <figcaption>The dragonfly painting on my desk</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1300" height="975" src="images/04_palette_top_down.jpg" alt="A messy watercolor and gouache palette seen from above, with brushes resting across the paint wells">
+            <figcaption>My palette, from above</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1113" height="1300" src="images/08_pencils_macro.jpg" alt="A close-up of a glass jar full of sharpened colored pencils">
+            <figcaption>Colored pencils, up close</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="975" height="1300" src="images/02_dragonfly_held.jpg" alt="A hand holding the dragonfly painting above the desk, palette in the background">
+            <figcaption>Holding it up</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1300" height="975" src="images/05_palette_macro.jpg" alt="A close-up of a paint-covered palette with a metal pencil sharpener and two brushes">
+            <figcaption>Paint and a pencil sharpener</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1300" height="975" src="images/07_water_jar_and_towel.jpg" alt="A glass water jar streaked with paint next to a cloth towel">
+            <figcaption>The water jar and a very used towel</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1300" height="975" src="images/03_painting_with_palette.jpg" alt="The dragonfly painting resting on a sheet next to the open palette">
+            <figcaption>The painting and the palette together</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1300" height="975" src="images/09_pencil_jar_grapes.jpg" alt="A glass jar with a painted grape design, full of colored pencils, with the palette blurred behind it">
+            <figcaption>The pencil jar with the grapes on it</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1300" height="975" src="images/06_desk_setup.jpg" alt="A low-angle view of the palette on the desk with a tablet stand and water jar behind it">
+            <figcaption>The desk where it happens</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" width="1137" height="1300" src="images/10_pencils_top_down.jpg" alt="A top-down view of the pencil jar on a pink mat beside the palette">
+            <figcaption>Pencils from above</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== CONTACT ===================== -->
-    <section id="contact">
+    <section class="contact" id="contact">
       <div class="wrap">
         <p class="eyebrow">Say hello</p>
         <h2>Contact</h2>
